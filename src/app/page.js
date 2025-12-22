@@ -6,7 +6,7 @@ import Projects from './sections/Projects'
 
 export default function Home() {
   return (
-    <Box bg="gray.100" minHeight="100vh">
+    <Box bg="cream.100" minHeight="100vh">
       {/* Hero takes full screen */}
       <Hero />
       <WhatWeDo />

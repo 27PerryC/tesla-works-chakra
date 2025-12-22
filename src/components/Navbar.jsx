@@ -2,6 +2,7 @@
 
 import { Box, Container, Flex, Text, HStack } from '@chakra-ui/react' // Import primitive components from chakra library 
 import { useState, useEffect, useRef } from 'react' // Import hooks from react library 
+import Link from 'next/link'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false) // Initialize state hooks
@@ -51,15 +52,17 @@ export default function Navbar() {
       <Container maxW="container.xl" px={{ base: 6, md: 8 }}>
         <Flex align="center" justify="space-between" py={4}>
           {/* Logo */}
-          <Text
-            fontSize="2xl"
-            fontWeight="bold"
-            color="white"
-            fontFamily="heading"
-            letterSpacing="tight"
-          >
-            Tesla Works
-          </Text>
+          <Link href="/" passHref>
+            <Text
+              fontSize="2xl"
+              fontWeight="bold"
+              color="white"
+              fontFamily="heading"
+              letterSpacing="tight"
+            >
+              Tesla Works
+            </Text>
+          </Link>
 
           {/* Nav Links */}
           <HStack gap={8}>
@@ -120,6 +123,9 @@ export default function Navbar() {
                   </Text>
 
                   <Text
+                    as={Link}
+                    href="/officers"
+                    display="block"
                     px={4}
                     py={2}
                     fontSize="md"
@@ -140,8 +146,8 @@ export default function Navbar() {
               </Box>
             </Box>
 
-            <NavLink label="Projects" />
-            <NavLink label="Contact" />
+            <NavLink label="Projects" href="/projects" />
+            <NavLink label="Contact Us" href="/#contact" />
 
             {/* Apply Now */}
             <Box
@@ -170,10 +176,11 @@ export default function Navbar() {
   )
 }
 
-/* Resuable hover animation */
-function NavLink({ label }) {
+function NavLink({ label, href }) {
   return (
     <Text
+      as={Link}
+      href={href}
       fontSize="md"
       fontWeight="semibold"
       color="white"

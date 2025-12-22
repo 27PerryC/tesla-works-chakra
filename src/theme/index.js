@@ -15,6 +15,10 @@ const config = defineConfig({
         gold: {
           500: { value: 'hsl(46, 100%, 60%)' },
         },
+        cream: {
+          50: { value: '#FAF8F3' },
+          100: { value: '#F7F3ED' },
+        }
       },
       fonts: {
         heading: { value: '"IBM Plex Sans", sans-serif' },
