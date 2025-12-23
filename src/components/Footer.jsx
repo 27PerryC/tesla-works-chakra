@@ -197,7 +197,7 @@ export default function Footer() {
           {/* Additional Links */}
           <HStack gap={6} fontSize="sm">
             <Link
-              href="/privacy"
+              href="/privacy-policy"
               color="gray.400"
               transition="color 0.2s ease"
               _hover={{ color: 'gold.500' }}
