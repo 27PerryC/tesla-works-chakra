@@ -31,7 +31,7 @@ export default function Footer() {
       position="relative"
       overflow="hidden"
     >
-      {/* Decorative background element */}
+      {/* Decorative background blur effect */}
       <Box
         position="absolute"
         top="-50%"
@@ -45,13 +45,13 @@ export default function Footer() {
       />
 
       <Container maxW="container.xl" px={{ base: 6, md: 8 }} position="relative" zIndex={1}>
-        {/* Main Footer Content */}
+        {/* Main footer content */}
         <Grid
           templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }}
           gap={12}
           py={16}
         >
-          {/* Brand Section */}
+          {/* Brand & social media column */}
           <VStack align={{ base: 'center', md: 'flex-start' }} gap={4}>
             <Text
               fontSize="3xl"
@@ -72,7 +72,7 @@ export default function Footer() {
               A project-based makerspace where students design, build, and launch innovative ideas.
             </Text>
 
-            {/* Social Media Icons */}
+            {/* Social media icon links */}
             <HStack gap={4} pt={2}>
               {socialLinks.map((social, index) => (
                 <Link
@@ -98,7 +98,7 @@ export default function Footer() {
             </HStack>
           </VStack>
 
-          {/* Quick Links */}
+          {/* Quick nav links column */}
           <VStack
             align={{ base: 'center', md: 'flex-start' }}
             gap={3}
@@ -132,7 +132,7 @@ export default function Footer() {
             ))}
           </VStack>
 
-          {/* Get Involved Section */}
+          {/* CTA & engagement column */}
           <VStack
             align={{ base: 'center', md: 'flex-start' }}
             gap={3}
@@ -179,7 +179,6 @@ export default function Footer() {
           </VStack>
         </Grid>
 
-        {/* Bottom Bar */}
         <Flex
           direction={{ base: 'column', md: 'row' }}
           justify="space-between"
@@ -194,7 +193,7 @@ export default function Footer() {
             © {currentYear} Tesla Works. All rights reserved.
           </Text>
 
-          {/* Additional Links */}
+          {/* Copyright + privacy policy & terms of service links */}
           <HStack gap={6} fontSize="sm">
             <Link
               href="/privacy-policy"

@@ -27,7 +27,7 @@ export default function Navbar() {
     closeTimer.current = setTimeout(() => setShowDropdown(false), 120)
   }
 
-  // Cleanup timer on unmount
+  // Cleanup timer on component unmount
   useEffect(() => {
     return () => {
       if (closeTimer.current) clearTimeout(closeTimer.current)
@@ -51,7 +51,7 @@ export default function Navbar() {
     >
       <Container maxW="container.xl" px={{ base: 6, md: 8 }}>
         <Flex align="center" justify="space-between" py={4}>
-          {/* Logo */}
+          {/* Brand logo - links to homepage */}
           <Link href="/" passHref>
             <Text
               fontSize="2xl"
@@ -64,9 +64,9 @@ export default function Navbar() {
             </Text>
           </Link>
 
-          {/* Nav Links */}
+          {/* Navigation Links */}
           <HStack gap={8}>
-            {/* About + Dropdown */}
+            {/* About + Dropdown with hover menu */}
             <Box position="relative" onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
               <Text
                 fontSize="md"
@@ -79,7 +79,7 @@ export default function Navbar() {
                 About ▾
               </Text>
 
-              {/* Hover area wrapper between About and Dropdown */}
+              {/* Dropdown container with invisible bridge to prevent accidental close */}
               <Box
                 position="absolute"
                 top="100%"
@@ -88,7 +88,7 @@ export default function Navbar() {
                 pt={1.9}
                 pointerEvents={showDropdown ? 'auto' : 'none'}
               >
-                {/* Invisible bridge */}
+                {/* Invisible bridge between trigger and menu */}
                 <Box height="18px" />
 
                 {/* Dropdown menu */}
@@ -149,7 +149,7 @@ export default function Navbar() {
             <NavLink label="Projects" href="/projects" />
             <NavLink label="Contact Us" href="/#contact" />
 
-            {/* Apply Now */}
+            {/* CTA button */}
             <Box
               as="a"
               href="/apply"
@@ -176,6 +176,7 @@ export default function Navbar() {
   )
 }
 
+// Reusable navigation link with hover animation
 function NavLink({ label, href }) {
   return (
     <Text
