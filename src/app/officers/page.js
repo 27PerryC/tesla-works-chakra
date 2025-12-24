@@ -45,7 +45,7 @@ export default function Officers() {
       email: 'outreach@teslaworks.org',
     },
     {
-      name: 'Oscar Rice',
+      name: 'Oscar Drowe',
       role: 'Community Builds Director',
       bio: 'Oscar is a sophomore studying Materials Science from Portland, Oregon. As Workshop Coordinator, he schedules and runs weekly technical workshops for members. Oscar specializes in PCB design and has taught over 50 students to solder. He also maintains the makerspace component inventory.',
       image: '',
