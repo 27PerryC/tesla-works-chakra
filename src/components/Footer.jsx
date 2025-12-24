@@ -69,7 +69,7 @@ export default function Footer() {
               textAlign={{ base: 'center', md: 'left' }}
               lineHeight={1.7}
             >
-              A project-based makerspace where students design, build, and launch innovative ideas.
+              A project-based community where students design, build, and launch innovative ideas.
             </Text>
 
             {/* Social media icon links */}

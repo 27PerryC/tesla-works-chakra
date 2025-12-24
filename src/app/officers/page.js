@@ -249,8 +249,6 @@ export default function Officers() {
         pt={32}
         pb={20}
         px={{ base: 4, md: 8 }}
-        borderBottom="4px solid"
-        borderColor="gold.500"
         position="relative"
         overflow="hidden"
       >
