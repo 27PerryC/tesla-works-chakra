@@ -108,7 +108,7 @@ export default function Hero() {
             <Button
               size="lg"
               bg="gold.500"
-              color="navy.900"
+              color="header.900"
               px={8}
               py={6}
               fontSize="md"

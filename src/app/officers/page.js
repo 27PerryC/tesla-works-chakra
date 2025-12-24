@@ -154,13 +154,13 @@ export default function Officers() {
             <Text
               fontSize="sm"
               fontWeight="bold"
-              color={featured ? 'brand.600' : 'navy.900'}
+              color={featured ? 'brand.600' : 'header.900'}
               textTransform="uppercase"
               letterSpacing="wide"
             >
               {officer.role}
             </Text>
-            <Heading as="h3" fontSize="2xl" fontWeight="bold" color="navy.900" mt={1}>
+            <Heading as="h3" fontSize="2xl" fontWeight="bold" color="header.900" mt={1}>
               {officer.name}
             </Heading>
           </Box>
@@ -229,7 +229,7 @@ export default function Officers() {
                 as="span"
                 position="relative"
                 zIndex={3}
-                color={isHovered ? 'white' : 'navy.900'}
+                color={isHovered ? 'white' : 'header.900'}
                 transition="color 0.4s ease"
               >
                 ✉ Email {firstName}
@@ -245,7 +245,7 @@ export default function Officers() {
     <Box bg="cream.100" minHeight="100vh">
       {/* Hero Section */}
       <Box
-        bg="navy.900"
+        bg="header.900"
         pt={32}
         pb={20}
         px={{ base: 4, md: 8 }}
@@ -306,7 +306,7 @@ export default function Officers() {
               fontWeight="bold"
               letterSpacing="widest"
               textTransform="uppercase"
-              color="navy.900"
+              color="header.900"
             >
               Executive Team
             </Text>
@@ -328,7 +328,7 @@ export default function Officers() {
               fontWeight="bold"
               letterSpacing="widest"
               textTransform="uppercase"
-              color="navy.900"
+              color="header.900"
             >
               Team Leaders
             </Text>

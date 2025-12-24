@@ -36,7 +36,7 @@ export default function WhatWeDo() {
               fontWeight="bold"
               letterSpacing="widest"
               textTransform="uppercase"
-              color="navy.900"
+              color="header.900"
             >
               What We Do
             </Text>
@@ -82,7 +82,7 @@ export default function WhatWeDo() {
         >
           {/* Card 1 - Project Teams */}
           <Box
-            bg="navy.900"
+            bg="header.900"
             borderRadius="2xl"
             p={{ base: 8, md: 10 }}
             position="relative"

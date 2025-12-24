@@ -42,7 +42,7 @@ export default function Navbar() {
       left={0}
       right={0}
       zIndex={1000}
-      bg={isScrolled ? 'navy.800' : 'transparent'}
+      bg={isScrolled ? 'header.800' : 'transparent'}
       backdropFilter={isScrolled ? 'blur(10px)' : 'none'}
       borderBottom={isScrolled ? '4px solid' : 'none'}
       borderColor="gold.500"
@@ -93,7 +93,7 @@ export default function Navbar() {
 
                 {/* Dropdown menu */}
                 <Box
-                  bg="navy.800"
+                  bg="header.800"
                   borderRadius="md"
                   minW="170px"
                   boxShadow="xl"
@@ -115,7 +115,7 @@ export default function Navbar() {
                     transition="all 0.2s ease"
                     _hover={{
                       bg: 'gold.500',
-                      color: 'navy.800',
+                      color: 'header.800',
                       transform: 'translateX(6px)',
                     }}
                   >
@@ -136,7 +136,7 @@ export default function Navbar() {
                     transition="all 0.2s ease"
                     _hover={{
                       bg: 'gold.500',
-                      color: 'navy.800',
+                      color: 'header.800',
                       transform: 'translateX(6px)',
                     }}
                   >
