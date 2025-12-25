@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Box, Container, Heading, Text, Grid, VStack } from '@chakra-ui/react'
+import { Box, Container, Heading, Text, Grid, VStack, HStack } from '@chakra-ui/react'
 
 export default function Officers() {
   // Top Leadership - President & VP
@@ -242,51 +242,95 @@ export default function Officers() {
   }
 
   return (
-    <Box bg=".100" minHeight="100vh">
+    <Box bg="light.100" minHeight="100vh">
       {/* Hero Section */}
       <Box
-        bg="dark.900"
-        pt={32}
-        pb={20}
-        px={{ base: 4, md: 8 }}
         position="relative"
+        pt={{ base: 32, md: 40 }}
+        pb={{ base: 20, md: 32 }}
+        px={{ base: 4, md: 8 }}
+        bg="dark.900"
         overflow="hidden"
       >
-        {/* Big diagonal accent */}
+        {/* "TEAM" watermark */}
+        <Text
+          position="absolute"
+          top="50%"
+          left="50%"
+          transform="translate(-50%, -50%)"
+          fontSize={{ base: '200px', md: '400px', lg: '500px' }}
+          fontWeight="black"
+          color="white"
+          opacity={0.02}
+          letterSpacing="tight"
+          userSelect="none"
+          whiteSpace="nowrap"
+        >
+          TEAM
+        </Text>
+
+        {/* Glowing orb */}
         <Box
           position="absolute"
-          top={0}
-          right={0}
-          width="50%"
-          height="100%"
+          top="10%"
+          right="20%"
+          width="500px"
+          height="500px"
           bg="brand.500"
-          clipPath="polygon(30% 0, 100% 0, 100% 100%, 0% 100%)"
-          opacity={0.9}
-          zIndex={1}
+          opacity={0.1}
+          borderRadius="full"
+          filter="blur(120px)"
         />
 
-        <Container maxW="1400px" position="relative" zIndex={10}>
-          <VStack gap={4} textAlign="center">
+        <Container maxW="1400px" position="relative" zIndex={1}>
+          <VStack gap={6} align="center" textAlign="center">
+            <HStack gap={3}>
+              <Box width="50px" height="3px" bg="brand.400" />
+              <Text
+                fontSize="sm"
+                fontWeight="bold"
+                letterSpacing="widest"
+                textTransform="uppercase"
+                color="brand.400"
+              >
+                Leadership
+              </Text>
+              <Box width="50px" height="3px" bg="brand.400" />
+            </HStack>
+
             <Heading
               as="h1"
-              fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
+              fontSize={{ base: '5xl', md: '7xl', lg: '8xl' }}
               fontWeight="black"
               color="white"
               letterSpacing="tight"
+              lineHeight={0.9}
             >
-              Meet the Team
+              Meet the<br />
+              <Text as="span" color="brand.400">Team</Text>
             </Heading>
 
             <Text
               fontSize={{ base: 'lg', md: 'xl' }}
-              color="gray.300"
-              maxW="700px"
-              lineHeight={1.7}
+              color="gray.400"
+              maxW="600px"
+              lineHeight={1.8}
             >
               The dedicated leaders driving innovation and community at Tesla Works.
             </Text>
           </VStack>
         </Container>
+        {/* Angled transition */}
+        <Box
+          position="absolute"
+          bottom="-1px"
+          left={0}
+          right={0}
+          height="100px"
+          bg="light.100"
+          clipPath="polygon(0 100%, 100% 0, 100% 100%, 0 100%)"
+        />
+
       </Box>
 
       {/* Main Content */}
