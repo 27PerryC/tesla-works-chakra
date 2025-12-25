@@ -60,7 +60,7 @@ export default function Navbar() {
               fontFamily="heading"
               letterSpacing="tight"
             >
-              Tesla Works
+              Tesla <Text as="span" color="brand.400">Works</Text>
             </Text>
           </Link>
 
