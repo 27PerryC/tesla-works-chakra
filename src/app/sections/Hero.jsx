@@ -35,7 +35,7 @@ export default function Hero() {
         left={0}
         right={0}
         bottom={0}
-        bg="rgba(0, 0, 0, 0.4)" // 40% dark overlay
+        bg="rgba(0, 0, 0, 0.2)" // 40% dark overlay
         zIndex={1}
       />
       {/* Content Container */}
