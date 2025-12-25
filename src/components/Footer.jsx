@@ -33,10 +33,10 @@ export default function Footer() {
   return (
     <Box
       as="footer"
-      bg="header.900"
+      bg="dark.900"
       color="white"
       borderTop="4px solid"
-      borderColor="gold.500"
+      borderColor="brand.400"
       position="relative"
       overflow="hidden"
     >
@@ -47,7 +47,7 @@ export default function Footer() {
         right="-10%"
         width="500px"
         height="500px"
-        bg="gold.500"
+        bg="brand.400"
         opacity={0.05}
         borderRadius="full"
         filter="blur(100px)"
@@ -58,7 +58,7 @@ export default function Footer() {
         <Box
           py={12}
           borderBottom="1px solid"
-          borderColor="white"
+          borderColor="rgba(255, 255, 255, 0.1)"
         >
           <Flex
             direction={{ base: 'column', lg: 'row' }}
@@ -106,14 +106,14 @@ export default function Footer() {
                   _placeholder={{ color: 'gray.500' }}
                   _hover={{ borderColor: 'rgba(255, 255, 255, 0.3)' }}
                   _focus={{
-                    borderColor: 'gold.500',
+                    borderColor: 'brand.400',
                     outline: 'none',
-                    boxShadow: '0 0 0 1px var(--chakra-colors-gold-500)',
+                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-400',
                   }}
                 />
                 <Button
                   type="submit"
-                  bg="gold.500"
+                  bg="brand.400"
                   color="navy.900"
                   fontWeight="bold"
                   fontSize="sm"
@@ -123,7 +123,7 @@ export default function Footer() {
                   transition="all 0.3s ease"
                   _hover={{
                     transform: 'translateY(-2px)',
-                    boxShadow: '0 4px 12px rgba(255, 215, 0, 0.3)',
+                    boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)',
                   }}
                 >
                   Subscribe
@@ -176,7 +176,7 @@ export default function Footer() {
                   bg="rgba(255, 255, 255, 0.1)"
                   transition="all 0.3s ease"
                   _hover={{
-                    bg: 'gold.500',
+                    bg: 'brand.400',
                     transform: 'translateY(-4px)',
                   }}
                 >
@@ -196,7 +196,7 @@ export default function Footer() {
               fontWeight="bold"
               letterSpacing="wider"
               textTransform="uppercase"
-              color="gold.500"
+              color="brand.500"
               mb={2}
             >
               Quick Links
@@ -211,7 +211,7 @@ export default function Footer() {
                 fontWeight="medium"
                 transition="all 0.2s ease"
                 _hover={{
-                  color: 'gold.500',
+                  color: 'brand.400',
                   paddingLeft: '8px',
                 }}
               >
@@ -230,7 +230,7 @@ export default function Footer() {
               fontWeight="bold"
               letterSpacing="wider"
               textTransform="uppercase"
-              color="gold.500"
+              color="brand.400"
               mb={2}
             >
               Get Involved
@@ -251,15 +251,16 @@ export default function Footer() {
               fontSize="sm"
               fontWeight="bold"
               color="white"
-              bg="brand.600"
+              bg="brand.500"
               px={6}
               py={2}
               borderRadius="md"
               mt={2}
               transition="all 0.3s ease"
               _hover={{
-                bg: 'brand.700',
+                bg: 'brand.600',
                 transform: 'translateY(-2px)',
+                boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)',
               }}
             >
               Contact Us
@@ -287,7 +288,7 @@ export default function Footer() {
               href="/privacy-policy"
               color="gray.400"
               transition="color 0.2s ease"
-              _hover={{ color: 'gold.500' }}
+              _hover={{ color: 'brand.400' }}
             >
               Privacy Policy
             </Link>
@@ -295,7 +296,7 @@ export default function Footer() {
               href="/terms"
               color="gray.400"
               transition="color 0.2s ease"
-              _hover={{ color: 'gold.500' }}
+              _hover={{ color: 'brand.400' }}
             >
               Terms of Service
             </Link>

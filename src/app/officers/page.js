@@ -119,12 +119,12 @@ export default function Officers() {
             borderRadius="full"
             overflow="hidden"
             border="4px solid"
-            borderColor={featured ? 'gold.500' : 'gray.200'}
+            borderColor={featured ? 'brand.400' : 'light.200'}
             flexShrink={0}
             display="flex"
             alignItems="center"
             justifyContent="center"
-            bg={!officer.image ? 'gray.100' : 'transparent'}
+            bg={!officer.image ? 'light.100' : 'transparent'}
           >
             {officer.image ? (
               <Box
@@ -154,13 +154,13 @@ export default function Officers() {
             <Text
               fontSize="sm"
               fontWeight="bold"
-              color={featured ? 'brand.600' : 'header.900'}
+              color={featured ? 'brand.500' : 'dark.900'}
               textTransform="uppercase"
               letterSpacing="wide"
             >
               {officer.role}
             </Text>
-            <Heading as="h3" fontSize="2xl" fontWeight="bold" color="header.900" mt={1}>
+            <Heading as="h3" fontSize="2xl" fontWeight="bold" color="dark.900" mt={1}>
               {officer.name}
             </Heading>
           </Box>
@@ -195,7 +195,7 @@ export default function Officers() {
                 bottom={0}
                 borderRadius="full"
                 padding="2px"
-                background="linear-gradient(90deg, #8B1538, #FFCC33)"
+                background="linear-gradient(90deg, #3B82F6, #60A5FA)"
                 zIndex={0}
               >
                 <Box
@@ -218,7 +218,7 @@ export default function Officers() {
                 bottom="2px"
                 width={isHovered ? 'calc(100% - 4px)' : '0%'}
                 borderRadius="full"
-                background="linear-gradient(90deg, #8B1538, #FFCC33)"
+                background="linear-gradient(90deg, #3B82F6, #60A5FA)"
                 transition="width 0.5s ease, opacity 0.5s ease"
                 opacity={isHovered ? 1 : 0}
                 zIndex={2}
@@ -229,7 +229,7 @@ export default function Officers() {
                 as="span"
                 position="relative"
                 zIndex={3}
-                color={isHovered ? 'white' : 'header.900'}
+                color={isHovered ? 'white' : 'dark.900'}
                 transition="color 0.4s ease"
               >
                 ✉ Email {firstName}
@@ -242,10 +242,10 @@ export default function Officers() {
   }
 
   return (
-    <Box bg="cream.100" minHeight="100vh">
+    <Box bg="light.100" minHeight="100vh">
       {/* Hero Section */}
       <Box
-        bg="header.900"
+        bg="dark.900"
         pt={32}
         pb={20}
         px={{ base: 4, md: 8 }}
@@ -259,7 +259,7 @@ export default function Officers() {
           right="15%"
           width="600px"
           height="600px"
-          bg="gold.500"
+          bg="brand.400"
           opacity={0.1}
           borderRadius="full"
           filter="blur(120px)"
@@ -306,11 +306,11 @@ export default function Officers() {
               fontWeight="bold"
               letterSpacing="widest"
               textTransform="uppercase"
-              color="header.900"
+              color="dark.900"
             >
               Executive Team
             </Text>
-            <Box width="40px" height="3px" bg="brand.600" />
+            <Box width="40px" height="3px" bg="brand.500" />
           </VStack>
 
           <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={8} width="100%">
@@ -328,11 +328,11 @@ export default function Officers() {
               fontWeight="bold"
               letterSpacing="widest"
               textTransform="uppercase"
-              color="header.900"
+              color="dark.900"
             >
               Team Leaders
             </Text>
-            <Box width="40px" height="3px" bg="gold.500" />
+            <Box width="40px" height="3px" bg="brand.400" />
           </VStack>
 
           <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={8} width="100%">

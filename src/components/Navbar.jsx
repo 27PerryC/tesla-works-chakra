@@ -42,10 +42,10 @@ export default function Navbar() {
       left={0}
       right={0}
       zIndex={1000}
-      bg={isScrolled ? 'header.800' : 'transparent'}
+      bg={isScrolled ? 'dark.800' : 'transparent'}
       backdropFilter={isScrolled ? 'blur(10px)' : 'none'}
       borderBottom={isScrolled ? '4px solid' : 'none'}
-      borderColor="gold.500"
+      borderColor="brand.400"
       transition="all 0.3s ease"
       boxShadow={isScrolled ? 'lg' : 'none'}
     >
@@ -74,7 +74,7 @@ export default function Navbar() {
                 color="white"
                 cursor="pointer"
                 transition="color 0.3s ease"
-                _hover={{ color: 'gold.500' }}
+                _hover={{ color: 'brand.400' }}
               >
                 About ▾
               </Text>
@@ -93,7 +93,7 @@ export default function Navbar() {
 
                 {/* Dropdown menu */}
                 <Box
-                  bg="header.800"
+                  bg="dark.800"
                   borderRadius="md"
                   minW="170px"
                   boxShadow="xl"
@@ -114,8 +114,8 @@ export default function Navbar() {
                     borderRadius="md"
                     transition="all 0.2s ease"
                     _hover={{
-                      bg: 'gold.500',
-                      color: 'header.800',
+                      bg: 'brand.400',
+                      color: 'dark.800',
                       transform: 'translateX(6px)',
                     }}
                   >
@@ -135,8 +135,8 @@ export default function Navbar() {
                     borderRadius="md"
                     transition="all 0.2s ease"
                     _hover={{
-                      bg: 'gold.500',
-                      color: 'header.800',
+                      bg: 'brand.400',
+                      color: 'dark.800',
                       transform: 'translateX(6px)',
                     }}
                   >
@@ -188,7 +188,7 @@ function NavLink({ label, href }) {
       cursor="pointer"
       position="relative"
       transition="color 0.3s ease"
-      _hover={{ color: 'gold.500' }}
+      _hover={{ color: 'brand.400' }}
       _after={{
         content: '""',
         position: 'absolute',
@@ -196,7 +196,7 @@ function NavLink({ label, href }) {
         left: 0,
         width: '0%',
         height: '3px',
-        bg: 'gold.500',
+        bg: 'brand.400',
         transition: 'width 0.3s ease',
       }}
       sx={{

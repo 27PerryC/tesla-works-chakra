@@ -9,7 +9,7 @@ export default function WhatWeDo() {
       as="section"
       py={{ base: 12, md: 20 }}
       px={{ base: 4, md: 8 }}
-      bg="gray.250"
+      bg="light.100"
       position="relative"
       overflow="hidden"
     >
@@ -20,7 +20,7 @@ export default function WhatWeDo() {
         right="-5%"
         width="500px"
         height="500px"
-        bg="gold.500"
+        bg="brand.400"
         opacity={0.05}
         borderRadius="full"
         filter="blur(80px)"
@@ -30,17 +30,17 @@ export default function WhatWeDo() {
         {/* Section Header - Centered */}
         <VStack align="center" gap={3} mb={16} textAlign="center">
           <HStack gap={3} align="center">
-            <Box width="40px" height="4px" bg="gold.500" />
+            <Box width="40px" height="4px" bg="brand.400" />
             <Text
               fontSize="sm"
               fontWeight="bold"
               letterSpacing="widest"
               textTransform="uppercase"
-              color="header.900"
+              color="dark.900"
             >
               What We Do
             </Text>
-            <Box width="40px" height="4px" bg="gold.500" />
+            <Box width="40px" height="4px" bg="brand.400" />
           </HStack>
 
           <Heading
@@ -53,11 +53,11 @@ export default function WhatWeDo() {
             maxW="900px"
           >
             Student-led engineering,{' '}
-            <Text as="span" color="brand.600">
+            <Text as="span" color="brand.500">
               projects
             </Text>
             , and{' '}
-            <Text as="span" color="gold.500">
+            <Text as="span" color="brand.500">
               community
             </Text>
             .
@@ -82,7 +82,7 @@ export default function WhatWeDo() {
         >
           {/* Card 1 - Project Teams */}
           <Box
-            bg="header.900"
+            bg="dark.900"
             borderRadius="2xl"
             p={{ base: 8, md: 10 }}
             position="relative"
@@ -100,7 +100,7 @@ export default function WhatWeDo() {
               right={0}
               width="120px"
               height="120px"
-              bg="gold.500"
+              bg="brand.400"
               opacity={0.1}
               borderBottomLeftRadius="full"
             />
@@ -132,7 +132,7 @@ export default function WhatWeDo() {
           <Box
             bg="white"
             border="2px solid"
-            borderColor="gray.200"
+            borderColor="light.200"
             borderRadius="2xl"
             p={{ base: 8, md: 10 }}
             position="relative"
@@ -167,7 +167,7 @@ export default function WhatWeDo() {
 
           {/* Card 3 - Community & Events */}
           <Box
-            bg="brand.600"
+            bg="brand.500"
             borderRadius="2xl"
             p={{ base: 8, md: 10 }}
             position="relative"
@@ -175,8 +175,8 @@ export default function WhatWeDo() {
             transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
             _hover={{
               transform: 'translateY(-4px)',
-              bg: 'brand.700',
-              boxShadow: '0 20px 60px rgba(139, 21, 56, 0.3)',
+              bg: 'brand.600',
+              boxShadow: '0 20px 60px rgba(59, 130, 246, 0.3)',
             }}
           >
             {/* Decorative pattern overlay */}

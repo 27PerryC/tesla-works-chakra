@@ -86,7 +86,8 @@ export default function Hero() {
             {/* Primary CTA - Join Us */}
             <Button
               size="lg"
-              bg="brand.600"
+              minW="160px"
+              bg="brand.500"
               color="white"
               px={8}
               py={6}
@@ -94,7 +95,7 @@ export default function Hero() {
               fontWeight="bold"
               borderRadius="md"
               _hover={{
-                bg: 'brand.700',
+                bg: 'brand.600',
                 transform: 'translateY(-2px)',
                 boxShadow: 'lg',
               }}
@@ -107,15 +108,19 @@ export default function Hero() {
             {/* Secondary CTA - Learn More */}
             <Button
               size="lg"
-              bg="gold.500"
-              color="header.900"
+              minW="160px"
+              bg="transparent"
+              color="white"
               px={8}
               py={6}
               fontSize="md"
               fontWeight="bold"
               borderRadius="md"
+              border="2px solid"
+              borderColor="white"
               _hover={{
-                bg: 'gold.500',
+                bg: 'white',
+                color: 'dark.900',
                 opacity: 0.9,
                 transform: 'translateY(-2px)',
                 boxShadow: 'lg',

@@ -9,13 +9,11 @@ export default function Projects() {
       title: 'Light Show',
       image: '/lightshow.jpg',
       description: 'A fully programmable LED light show built by Tesla Works members, synced to music and live events.',
-      accent: 'brand.600',
     },
     {
       title: 'Barbie Car',
       image: '/barbiecar.jpg',
       description: 'A high performance rebuild of a kid sized EV featuring upgraded motors, a higher-capacity battery system, and custom electronics.',
-      accent: 'gold.500',
     },
   ]
 
@@ -24,7 +22,7 @@ export default function Projects() {
       as="section"
       py={{ base: 12, md: 20 }}
       px={{ base: 4, md: 8 }}
-      bg="gray.250"
+      bg="light.100"
       position="relative"
       overflow="hidden"
     >
@@ -34,7 +32,7 @@ export default function Projects() {
         left="-10%"
         width="600px"
         height="600px"
-        bg="brand.600"
+        bg="brand.500"
         opacity={0.03}
         borderRadius="full"
         filter="blur(100px)"
@@ -43,7 +41,7 @@ export default function Projects() {
       <Container maxW="1400px">
         <VStack gap={4} mb={16} textAlign="center">
           <HStack gap={3} align="center">
-            <Box width="400px" height="4px" bg="gold.500" />
+            <Box width="400px" height="4px" bg="brand.400" />
             <Heading
               as="h2"
               fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
@@ -53,7 +51,7 @@ export default function Projects() {
             >
               Featured Projects
             </Heading>
-            <Box width="400px" height="4px" bg="gold.500" />
+            <Box width="400px" height="4px" bg="brand.400" />
           </HStack>
         </VStack>
 
@@ -67,12 +65,12 @@ export default function Projects() {
               key={index} // Create a key to keep track of multiple project cards 
               role="group"
               position="relative"
-              bg="gray.50"
+              bg="light.50"
               borderRadius="2xl"
               overflow="hidden"
               transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
               _hover={{
-                transform: 'translateY(-8px)',
+                transform: 'translateY(-4px)',
                 boxShadow: '0 30px 60px rgba(0, 0, 0, 0.15)',
               }}
             >
@@ -81,7 +79,7 @@ export default function Projects() {
                 position="relative"
                 width="100%"
                 height={{ base: '250px', md: '350px' }}
-                bg="gray.200"
+                bg="light.200"
                 overflow="hidden"
               >
                 {/* Project image */}
@@ -104,7 +102,7 @@ export default function Projects() {
                   left={0}
                   right={0}
                   bottom={0}
-                  bg={project.accent}
+                  bg="brand.500"
                   opacity={0}
                   transition="opacity 0.4s ease"
                   _groupHover={{
@@ -119,7 +117,7 @@ export default function Projects() {
                   <Box
                     width="40px"
                     height="3px"
-                    bg={project.accent}
+                    bg="brand.500"
                     mb={3}
                   />
                   <Heading
@@ -144,7 +142,7 @@ export default function Projects() {
                 {/* Get Involved button */}
                 <Button
                   size="lg"
-                  bg={project.accent}
+                  bg="brand.500"
                   color="white"
                   fontWeight="bold"
                   borderRadius="md"
@@ -152,8 +150,7 @@ export default function Projects() {
                   mt={4}
                   alignSelf="flex-start"
                   _hover={{
-                    bg: project.accent,
-                    opacity: 0.9,
+                    bg: 'brand.600',
                     transform: 'translateX(4px)',
                   }}
                   transition="all 0.3s ease"
