@@ -242,7 +242,7 @@ export default function Officers() {
   }
 
   return (
-    <Box bg="light.100" minHeight="100vh">
+    <Box bg=".100" minHeight="100vh">
       {/* Hero Section */}
       <Box
         bg="dark.900"
@@ -252,20 +252,20 @@ export default function Officers() {
         position="relative"
         overflow="hidden"
       >
-        {/* Decorative background */}
+        {/* Big diagonal accent */}
         <Box
           position="absolute"
-          top="-25%"
-          right="15%"
-          width="600px"
-          height="600px"
-          bg="brand.400"
-          opacity={0.1}
-          borderRadius="full"
-          filter="blur(120px)"
+          top={0}
+          right={0}
+          width="50%"
+          height="100%"
+          bg="brand.500"
+          clipPath="polygon(30% 0, 100% 0, 100% 100%, 0% 100%)"
+          opacity={0.9}
+          zIndex={1}
         />
 
-        <Container maxW="1400px" position="relative" zIndex={1}>
+        <Container maxW="1400px" position="relative" zIndex={10}>
           <VStack gap={4} textAlign="center">
             <Heading
               as="h1"
