@@ -1,10 +1,12 @@
 'use client'
 
-import { Box, Container, Flex, Text, HStack, VStack, Grid, Link } from '@chakra-ui/react'
+import { useState } from 'react'
+import { Box, Container, Flex, Text, HStack, VStack, Grid, Link, Input, Button } from '@chakra-ui/react'
 import { FaFacebook, FaInstagram, FaGithub, FaDiscord } from 'react-icons/fa'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const [email, setEmail] = useState('')
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -21,10 +23,17 @@ export default function Footer() {
     { icon: FaDiscord, href: '#', label: 'Discord' },
   ]
 
+  const handleSubscribe = (e) => {
+    e.preventDefault()
+    // TODO: Connect to newsletter service
+    console.log('Subscribing:', email)
+    setEmail('')
+  }
+
   return (
     <Box
       as="footer"
-      bg="navy.900"
+      bg="header.900"
       color="white"
       borderTop="4px solid"
       borderColor="gold.500"
@@ -45,6 +54,85 @@ export default function Footer() {
       />
 
       <Container maxW="container.xl" px={{ base: 6, md: 8 }} position="relative" zIndex={1}>
+        {/* Newsletter section */}
+        <Box
+          py={12}
+          borderBottom="1px solid"
+          borderColor="white"
+        >
+          <Flex
+            direction={{ base: 'column', lg: 'row' }}
+            justify="space-between"
+            align={{ base: 'center', lg: 'center' }}
+            gap={8}
+          >
+            <VStack align={{ base: 'center', lg: 'flex-start' }} gap={2}>
+              <Text
+                fontSize={{ base: 'xl', md: '2xl' }}
+                fontWeight="bold"
+                fontFamily="heading"
+              >
+                Stay in the loop
+              </Text>
+              <Text
+                fontSize="sm"
+                color="gray.400"
+                textAlign={{ base: 'center', lg: 'left' }}
+              >
+                Get updates on projects, events, and workshops. No spam, unsubscribe anytime.
+              </Text>
+            </VStack>
+
+            <Box as="form" onSubmit={handleSubscribe} width={{ base: '100%', sm: 'auto' }}>
+              <Flex
+                direction={{ base: 'column', sm: 'row' }}
+                gap={3}
+              >
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  bg="rgba(255, 255, 255, 0.1)"
+                  border="1px solid"
+                  borderColor="rgba(255, 255, 255, 0.2)"
+                  borderRadius="md"
+                  px={4}
+                  py={5}
+                  fontSize="sm"
+                  color="white"
+                  width={{ base: '100%', sm: '280px' }}
+                  _placeholder={{ color: 'gray.500' }}
+                  _hover={{ borderColor: 'rgba(255, 255, 255, 0.3)' }}
+                  _focus={{
+                    borderColor: 'gold.500',
+                    outline: 'none',
+                    boxShadow: '0 0 0 1px var(--chakra-colors-gold-500)',
+                  }}
+                />
+                <Button
+                  type="submit"
+                  bg="gold.500"
+                  color="navy.900"
+                  fontWeight="bold"
+                  fontSize="sm"
+                  px={6}
+                  py={5}
+                  borderRadius="md"
+                  transition="all 0.3s ease"
+                  _hover={{
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 12px rgba(255, 215, 0, 0.3)',
+                  }}
+                >
+                  Subscribe
+                </Button>
+              </Flex>
+            </Box>
+          </Flex>
+        </Box>
+
         {/* Main footer content */}
         <Grid
           templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }}
