@@ -147,7 +147,7 @@ export default function Navbar() {
             </Box>
 
             <NavLink label="Projects" href="/projects" />
-            <NavLink label="Contact Us" href="/#contact" />
+            <NavLink label="Contact Us" href="/contact-us" />
 
             {/* CTA button */}
             <Box
