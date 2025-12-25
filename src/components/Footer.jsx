@@ -108,13 +108,13 @@ export default function Footer() {
                   _focus={{
                     borderColor: 'brand.400',
                     outline: 'none',
-                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-400',
+                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-400)',
                   }}
                 />
                 <Button
                   type="submit"
                   bg="brand.400"
-                  color="navy.900"
+                  color="dark.900"
                   fontWeight="bold"
                   fontSize="sm"
                   px={6}
