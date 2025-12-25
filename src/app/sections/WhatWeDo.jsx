@@ -57,7 +57,7 @@ export default function WhatWeDo() {
               projects
             </Text>
             , and{' '}
-            <Text as="span" color="brand.400">
+            <Text as="span" color="brand.500">
               community
             </Text>
             .
