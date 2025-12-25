@@ -1,8 +1,8 @@
 'use client'
 
 import { Box, Container, Heading, Text, Grid, VStack, HStack } from '@chakra-ui/react'
+import { HiLightBulb, HiWrenchScrewdriver, HiUserGroup } from 'react-icons/hi2'
 
-// WhatWeDo section
 export default function WhatWeDo() {
   return (
     <Box
@@ -13,7 +13,7 @@ export default function WhatWeDo() {
       position="relative"
       overflow="hidden"
     >
-
+      {/* Decorative blur */}
       <Box
         position="absolute"
         top="-10%"
@@ -27,7 +27,7 @@ export default function WhatWeDo() {
       />
 
       <Container maxW="1400px">
-        {/* Section Header - Centered */}
+        {/* Section Header */}
         <VStack align="center" gap={3} mb={16} textAlign="center">
           <HStack gap={3} align="center">
             <Box width="40px" height="4px" bg="brand.400" />
@@ -57,7 +57,7 @@ export default function WhatWeDo() {
               projects
             </Text>
             , and{' '}
-            <Text as="span" color="brand.500">
+            <Text as="span" color="brand.400">
               community
             </Text>
             .
@@ -74,7 +74,7 @@ export default function WhatWeDo() {
           </Text>
         </VStack>
 
-        {/* Feature Cards - Clean Aligned Grid */}
+        {/* Feature Cards */}
         <Grid
           templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }}
           gap={6}
@@ -90,10 +90,9 @@ export default function WhatWeDo() {
             transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
             _hover={{
               transform: 'translateY(-4px)',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+              boxShadow: '0 20px 60px hsla(0, 0%, 0%, 0.3)',
             }}
           >
-            {/* Decorative corner accent */}
             <Box
               position="absolute"
               top={0}
@@ -105,23 +104,14 @@ export default function WhatWeDo() {
               borderBottomLeftRadius="full"
             />
 
-            <VStack align="center" gap={4} position="relative" zIndex={1} textAlign="center">
-              <Text fontSize="5xl">💡</Text>
-
-              <Heading
-                as="h3"
-                fontSize="2xl"
-                fontWeight="bold"
-                color="white"
-              >
+            <VStack align="center" gap={5} position="relative" zIndex={1} textAlign="center">
+              <Box p={4} bg="brand.500" borderRadius="xl" color="white">
+                <Box as={HiLightBulb} fontSize="32px" />
+              </Box>
+              <Heading as="h3" fontSize="2xl" fontWeight="bold" color="white">
                 Project Teams
               </Heading>
-
-              <Text
-                fontSize="md"
-                color="gray.300"
-                lineHeight={1.8}
-              >
+              <Text fontSize="md" color="gray.300" lineHeight={1.8}>
                 Join or start project teams, building everything from trebuchets and
                 launchers to LEDs, hardware mods, and full-stack apps.
               </Text>
@@ -135,30 +125,20 @@ export default function WhatWeDo() {
             borderColor="light.200"
             borderRadius="2xl"
             p={{ base: 8, md: 10 }}
-            position="relative"
             transition="all 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
             _hover={{
               transform: 'translateY(-4px)',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.1)',
+              boxShadow: '0 20px 60px hsla(0, 0%, 0%, 0.1)',
             }}
           >
-            <VStack align="center" gap={4} textAlign="center">
-              <Text fontSize="5xl">🔧</Text>
-
-              <Heading
-                as="h3"
-                fontSize="2xl"
-                fontWeight="bold"
-                color="gray.900"
-              >
+            <VStack align="center" gap={5} textAlign="center">
+              <Box p={4} bg="brand.500" borderRadius="xl" color="white">
+                <Box as={HiWrenchScrewdriver} fontSize="32px" />
+              </Box>
+              <Heading as="h3" fontSize="2xl" fontWeight="bold" color="gray.900">
                 Hands-On Workshops
               </Heading>
-
-              <Text
-                fontSize="md"
-                color="gray.600"
-                lineHeight={1.8}
-              >
+              <Text fontSize="md" color="gray.600" lineHeight={1.8}>
                 Learn PCB design, soldering, microcontrollers, and practical tools you
                 won't get from lecture alone.
               </Text>
@@ -176,10 +156,9 @@ export default function WhatWeDo() {
             _hover={{
               transform: 'translateY(-4px)',
               bg: 'brand.600',
-              boxShadow: '0 20px 60px rgba(59, 130, 246, 0.3)',
+              boxShadow: '0 20px 60px hsla(221, 92%, 60%, 0.3)',
             }}
           >
-            {/* Decorative pattern overlay */}
             <Box
               position="absolute"
               bottom={-20}
@@ -187,27 +166,18 @@ export default function WhatWeDo() {
               width="200px"
               height="200px"
               border="40px solid"
-              borderColor="rgba(255, 255, 255, 0.05)"
+              borderColor="hsla(0, 0%, 100%, 0.05)"
               borderRadius="full"
             />
 
-            <VStack align="center" gap={4} position="relative" zIndex={1} textAlign="center">
-              <Text fontSize="5xl">🤝</Text>
-
-              <Heading
-                as="h3"
-                fontSize="2xl"
-                fontWeight="bold"
-                color="white"
-              >
+            <VStack align="center" gap={5} position="relative" zIndex={1} textAlign="center">
+              <Box p={4} bg="white" borderRadius="xl" color="brand.500">
+                <Box as={HiUserGroup} fontSize="32px" />
+              </Box>
+              <Heading as="h3" fontSize="2xl" fontWeight="bold" color="white">
                 Community & Events
               </Heading>
-
-              <Text
-                fontSize="md"
-                color="rgba(255, 255, 255, 0.9)"
-                lineHeight={1.8}
-              >
+              <Text fontSize="md" color="hsla(0, 0%, 100%, 0.9)" lineHeight={1.8}>
                 Build with other students, demo your work, and connect with industry
                 partners who care about real projects.
               </Text>
