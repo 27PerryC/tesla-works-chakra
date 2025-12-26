@@ -273,9 +273,11 @@ export default function Contact() {
               href="/apply"
               _hover={{ textDecoration: 'none' }}
               height="100%"
+              width="100%"
             >
               <Box
                 height="100%"
+                width="100%"
                 bg="dark.900"
                 borderRadius="2xl"
                 p={8}
@@ -326,9 +328,11 @@ export default function Contact() {
               href="mailto:partners@teslaworks.org"
               _hover={{ textDecoration: 'none' }}
               height="100%"
+              width="100%"
             >
               <Box
                 height="100%"
+                width="100%"
                 bg="white"
                 borderRadius="2xl"
                 p={8}
