@@ -93,7 +93,7 @@ export default function Contact() {
               </HStack>
               <HStack gap={3} color="gray.400" _hover={{ color: 'brand.400' }} transition="color 0.2s">
                 <Box as={HiLocationMarker} fontSize="20px" />
-                <Text fontSize="md">Makerspace Room 123, Engineering Building</Text>
+                <Text fontSize="md">Room TBD</Text>
               </HStack>
               <HStack gap={3} color="gray.400" _hover={{ color: 'brand.400' }} transition="color 0.2s">
                 <Box as={HiClock} fontSize="20px" />
@@ -406,7 +406,7 @@ export default function Contact() {
                     Thursdays, 6–8 PM
                   </Text>
                   <Text fontSize="xs" color="hsla(0, 0%, 100%, 0.6)">
-                    Engineering Building, Room 123
+                    MechE Building, Room TBD
                   </Text>
                 </VStack>
               </VStack>
