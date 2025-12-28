@@ -247,7 +247,7 @@ export default function Footer() {
             </Text>
 
             <Link
-              href="/contact"
+              href="/contact-us"
               fontSize="sm"
               fontWeight="bold"
               color="white"
