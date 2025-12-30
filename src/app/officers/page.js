@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Box, Container, Heading, Text, Grid, VStack } from '@chakra-ui/react'
+import { Box, Container, Heading, Text, Grid, VStack, HStack } from '@chakra-ui/react'
 
 export default function Officers() {
   // Top Leadership - President & VP
@@ -119,12 +119,12 @@ export default function Officers() {
             borderRadius="full"
             overflow="hidden"
             border="4px solid"
-            borderColor={featured ? 'gold.500' : 'gray.200'}
+            borderColor={featured ? 'brand.400' : 'light.200'}
             flexShrink={0}
             display="flex"
             alignItems="center"
             justifyContent="center"
-            bg={!officer.image ? 'gray.100' : 'transparent'}
+            bg={!officer.image ? 'light.100' : 'transparent'}
           >
             {officer.image ? (
               <Box
@@ -154,13 +154,13 @@ export default function Officers() {
             <Text
               fontSize="sm"
               fontWeight="bold"
-              color={featured ? 'brand.600' : 'navy.900'}
+              color={featured ? 'brand.500' : 'dark.900'}
               textTransform="uppercase"
               letterSpacing="wide"
             >
               {officer.role}
             </Text>
-            <Heading as="h3" fontSize="2xl" fontWeight="bold" color="navy.900" mt={1}>
+            <Heading as="h3" fontSize="2xl" fontWeight="bold" color="dark.900" mt={1}>
               {officer.name}
             </Heading>
           </Box>
@@ -195,7 +195,7 @@ export default function Officers() {
                 bottom={0}
                 borderRadius="full"
                 padding="2px"
-                background="linear-gradient(90deg, #8B1538, #FFCC33)"
+                background="linear-gradient(90deg, #3B82F6, #60A5FA)"
                 zIndex={0}
               >
                 <Box
@@ -218,7 +218,7 @@ export default function Officers() {
                 bottom="2px"
                 width={isHovered ? 'calc(100% - 4px)' : '0%'}
                 borderRadius="full"
-                background="linear-gradient(90deg, #8B1538, #FFCC33)"
+                background="linear-gradient(90deg, #3B82F6, #60A5FA)"
                 transition="width 0.5s ease, opacity 0.5s ease"
                 opacity={isHovered ? 1 : 0}
                 zIndex={2}
@@ -229,7 +229,7 @@ export default function Officers() {
                 as="span"
                 position="relative"
                 zIndex={3}
-                color={isHovered ? 'white' : 'navy.900'}
+                color={isHovered ? 'white' : 'dark.900'}
                 transition="color 0.4s ease"
               >
                 ✉ Email {firstName}
@@ -242,51 +242,95 @@ export default function Officers() {
   }
 
   return (
-    <Box bg="cream.100" minHeight="100vh">
+    <Box bg="light.100" minHeight="100vh">
       {/* Hero Section */}
       <Box
-        bg="navy.900"
-        pt={32}
-        pb={20}
-        px={{ base: 4, md: 8 }}
         position="relative"
+        pt={{ base: 32, md: 40 }}
+        pb={{ base: 20, md: 32 }}
+        px={{ base: 4, md: 8 }}
+        bg="dark.900"
         overflow="hidden"
       >
-        {/* Decorative background */}
+        {/* "TEAM" watermark */}
+        <Text
+          position="absolute"
+          top="50%"
+          left="50%"
+          transform="translate(-50%, -50%)"
+          fontSize={{ base: '200px', md: '400px', lg: '500px' }}
+          fontWeight="black"
+          color="white"
+          opacity={0.02}
+          letterSpacing="tight"
+          userSelect="none"
+          whiteSpace="nowrap"
+        >
+          TEAM
+        </Text>
+
+        {/* Glowing orb */}
         <Box
           position="absolute"
-          top="-25%"
-          right="15%"
-          width="600px"
-          height="600px"
-          bg="gold.500"
+          top="10%"
+          right="20%"
+          width="500px"
+          height="500px"
+          bg="brand.500"
           opacity={0.1}
           borderRadius="full"
           filter="blur(120px)"
         />
 
         <Container maxW="1400px" position="relative" zIndex={1}>
-          <VStack gap={4} textAlign="center">
+          <VStack gap={6} align="center" textAlign="center">
+            <HStack gap={3}>
+              <Box width="50px" height="3px" bg="brand.400" />
+              <Text
+                fontSize="sm"
+                fontWeight="bold"
+                letterSpacing="widest"
+                textTransform="uppercase"
+                color="brand.400"
+              >
+                Leadership
+              </Text>
+              <Box width="50px" height="3px" bg="brand.400" />
+            </HStack>
+
             <Heading
               as="h1"
-              fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
+              fontSize={{ base: '5xl', md: '7xl', lg: '8xl' }}
               fontWeight="black"
               color="white"
               letterSpacing="tight"
+              lineHeight={0.9}
             >
-              Meet the Team
+              Meet the<br />
+              <Text as="span" color="brand.400">Team</Text>
             </Heading>
 
             <Text
               fontSize={{ base: 'lg', md: 'xl' }}
-              color="gray.300"
-              maxW="700px"
-              lineHeight={1.7}
+              color="gray.400"
+              maxW="600px"
+              lineHeight={1.8}
             >
               The dedicated leaders driving innovation and community at Tesla Works.
             </Text>
           </VStack>
         </Container>
+        {/* Angled transition */}
+        <Box
+          position="absolute"
+          bottom="-1px"
+          left={0}
+          right={0}
+          height="100px"
+          bg="light.100"
+          clipPath="polygon(0 100%, 100% 0, 100% 100%, 0 100%)"
+        />
+
       </Box>
 
       {/* Main Content */}
@@ -306,11 +350,11 @@ export default function Officers() {
               fontWeight="bold"
               letterSpacing="widest"
               textTransform="uppercase"
-              color="navy.900"
+              color="dark.900"
             >
               Executive Team
             </Text>
-            <Box width="40px" height="3px" bg="brand.600" />
+            <Box width="40px" height="3px" bg="brand.500" />
           </VStack>
 
           <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={8} width="100%">
@@ -328,11 +372,11 @@ export default function Officers() {
               fontWeight="bold"
               letterSpacing="widest"
               textTransform="uppercase"
-              color="navy.900"
+              color="dark.900"
             >
               Team Leaders
             </Text>
-            <Box width="40px" height="3px" bg="gold.500" />
+            <Box width="40px" height="3px" bg="brand.400" />
           </VStack>
 
           <Grid templateColumns={{ base: '1fr', lg: 'repeat(2, 1fr)' }} gap={8} width="100%">

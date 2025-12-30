@@ -1,10 +1,12 @@
 'use client'
 
-import { Box, Container, Flex, Text, HStack, VStack, Grid, Link } from '@chakra-ui/react'
+import { useState } from 'react'
+import { Box, Container, Flex, Text, HStack, VStack, Grid, Link, Input, Button } from '@chakra-ui/react'
 import { FaFacebook, FaInstagram, FaGithub, FaDiscord } from 'react-icons/fa'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const [email, setEmail] = useState('')
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -21,13 +23,20 @@ export default function Footer() {
     { icon: FaDiscord, href: '#', label: 'Discord' },
   ]
 
+  const handleSubscribe = (e) => {
+    e.preventDefault()
+    // TODO: Connect to newsletter service
+    console.log('Subscribing:', email)
+    setEmail('')
+  }
+
   return (
     <Box
       as="footer"
-      bg="navy.900"
+      bg="dark.900"
       color="white"
       borderTop="4px solid"
-      borderColor="gold.500"
+      borderColor="brand.400"
       position="relative"
       overflow="hidden"
     >
@@ -38,13 +47,92 @@ export default function Footer() {
         right="-10%"
         width="500px"
         height="500px"
-        bg="gold.500"
+        bg="brand.400"
         opacity={0.05}
         borderRadius="full"
         filter="blur(100px)"
       />
 
       <Container maxW="container.xl" px={{ base: 6, md: 8 }} position="relative" zIndex={1}>
+        {/* Newsletter section */}
+        <Box
+          py={12}
+          borderBottom="1px solid"
+          borderColor="rgba(255, 255, 255, 0.1)"
+        >
+          <Flex
+            direction={{ base: 'column', lg: 'row' }}
+            justify="space-between"
+            align={{ base: 'center', lg: 'center' }}
+            gap={8}
+          >
+            <VStack align={{ base: 'center', lg: 'flex-start' }} gap={2}>
+              <Text
+                fontSize={{ base: 'xl', md: '2xl' }}
+                fontWeight="bold"
+                fontFamily="heading"
+              >
+                Stay in the loop
+              </Text>
+              <Text
+                fontSize="sm"
+                color="gray.400"
+                textAlign={{ base: 'center', lg: 'left' }}
+              >
+                Get updates on projects, events, and workshops. No spam, unsubscribe anytime.
+              </Text>
+            </VStack>
+
+            <Box as="form" onSubmit={handleSubscribe} width={{ base: '100%', sm: 'auto' }}>
+              <Flex
+                direction={{ base: 'column', sm: 'row' }}
+                gap={3}
+              >
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  bg="rgba(255, 255, 255, 0.1)"
+                  border="1px solid"
+                  borderColor="rgba(255, 255, 255, 0.2)"
+                  borderRadius="md"
+                  px={4}
+                  py={5}
+                  fontSize="sm"
+                  color="white"
+                  width={{ base: '100%', sm: '280px' }}
+                  _placeholder={{ color: 'gray.500' }}
+                  _hover={{ borderColor: 'rgba(255, 255, 255, 0.3)' }}
+                  _focus={{
+                    borderColor: 'brand.400',
+                    outline: 'none',
+                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-400)',
+                  }}
+                />
+                <Button
+                  type="submit"
+                  bg="brand.400"
+                  color="dark.900"
+                  fontWeight="bold"
+                  fontSize="sm"
+                  px={6}
+                  py={5}
+                  borderRadius="md"
+                  transition="all 0.3s ease"
+                  _hover={{
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)',
+                  }}
+                >
+                  Subscribe
+                </Button>
+              </Flex>
+            </Box>
+          </Flex>
+        </Box>
+
         {/* Main footer content */}
         <Grid
           templateColumns={{ base: '1fr', md: 'repeat(3, 1fr)' }}
@@ -88,7 +176,7 @@ export default function Footer() {
                   bg="rgba(255, 255, 255, 0.1)"
                   transition="all 0.3s ease"
                   _hover={{
-                    bg: 'gold.500',
+                    bg: 'brand.400',
                     transform: 'translateY(-4px)',
                   }}
                 >
@@ -108,7 +196,7 @@ export default function Footer() {
               fontWeight="bold"
               letterSpacing="wider"
               textTransform="uppercase"
-              color="gold.500"
+              color="brand.500"
               mb={2}
             >
               Quick Links
@@ -123,7 +211,7 @@ export default function Footer() {
                 fontWeight="medium"
                 transition="all 0.2s ease"
                 _hover={{
-                  color: 'gold.500',
+                  color: 'brand.400',
                   paddingLeft: '8px',
                 }}
               >
@@ -142,7 +230,7 @@ export default function Footer() {
               fontWeight="bold"
               letterSpacing="wider"
               textTransform="uppercase"
-              color="gold.500"
+              color="brand.400"
               mb={2}
             >
               Get Involved
@@ -159,19 +247,20 @@ export default function Footer() {
             </Text>
 
             <Link
-              href="/contact"
+              href="/contact-us"
               fontSize="sm"
               fontWeight="bold"
               color="white"
-              bg="brand.600"
+              bg="brand.500"
               px={6}
               py={2}
               borderRadius="md"
               mt={2}
               transition="all 0.3s ease"
               _hover={{
-                bg: 'brand.700',
+                bg: 'brand.600',
                 transform: 'translateY(-2px)',
+                boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)',
               }}
             >
               Contact Us
@@ -199,7 +288,7 @@ export default function Footer() {
               href="/privacy-policy"
               color="gray.400"
               transition="color 0.2s ease"
-              _hover={{ color: 'gold.500' }}
+              _hover={{ color: 'brand.400' }}
             >
               Privacy Policy
             </Link>
@@ -207,7 +296,7 @@ export default function Footer() {
               href="/terms"
               color="gray.400"
               transition="color 0.2s ease"
-              _hover={{ color: 'gold.500' }}
+              _hover={{ color: 'brand.400' }}
             >
               Terms of Service
             </Link>

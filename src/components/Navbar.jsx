@@ -1,12 +1,14 @@
 'use client'
 
-import { Box, Container, Flex, Text, HStack } from '@chakra-ui/react' // Import primitive components from chakra library 
+import { Box, Container, Flex, Text, HStack, VStack } from '@chakra-ui/react' // Import primitive components from chakra library 
 import { useState, useEffect, useRef } from 'react' // Import hooks from react library 
+import { HiMenu, HiX } from 'react-icons/hi'
 import Link from 'next/link'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false) // Initialize state hooks
   const [showDropdown, setShowDropdown] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const closeTimer = useRef(null) // Initialize ref hook 
 
   // Pass scroll logic into useEffect
@@ -15,6 +17,29 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMobileMenuOpen(false)
+      }
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [mobileMenuOpen])
 
   // Prevent a pending close from firing if user re-enters quickly
   const openDropdown = () => {
@@ -35,148 +60,206 @@ export default function Navbar() {
   }, [])
 
   return (
-    <Box
-      as="nav"
-      position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      zIndex={1000}
-      bg={isScrolled ? 'navy.800' : 'transparent'}
-      backdropFilter={isScrolled ? 'blur(10px)' : 'none'}
-      borderBottom={isScrolled ? '4px solid' : 'none'}
-      borderColor="gold.500"
-      transition="all 0.3s ease"
-      boxShadow={isScrolled ? 'lg' : 'none'}
-    >
-      <Container maxW="container.xl" px={{ base: 6, md: 8 }}>
-        <Flex align="center" justify="space-between" py={4}>
-          {/* Brand logo - links to homepage */}
-          <Link href="/" passHref>
-            <Text
-              fontSize="2xl"
-              fontWeight="bold"
-              color="white"
-              fontFamily="heading"
-              letterSpacing="tight"
-            >
-              Tesla Works
-            </Text>
-          </Link>
-
-          {/* Navigation Links */}
-          <HStack gap={8}>
-            {/* About + Dropdown with hover menu */}
-            <Box position="relative" onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
+    <>
+      <Box
+        as="nav"
+        position="fixed"
+        top={0}
+        left={0}
+        right={0}
+        zIndex={1000}
+        bg={isScrolled ? 'dark.800' : 'transparent'}
+        backdropFilter={isScrolled ? 'blur(10px)' : 'none'}
+        borderBottom={isScrolled ? '4px solid' : 'none'}
+        borderColor="brand.400"
+        transition="all 0.3s ease"
+        boxShadow={isScrolled ? 'lg' : 'none'}
+      >
+        <Container maxW="container.xl" px={{ base: 6, md: 8 }}>
+          <Flex align="center" justify="space-between" py={4}>
+            {/* Brand logo - links to homepage */}
+            <Link href="/" passHref>
               <Text
-                fontSize="md"
-                fontWeight="semibold"
+                fontSize="2xl"
+                fontWeight="bold"
                 color="white"
-                cursor="pointer"
-                transition="color 0.3s ease"
-                _hover={{ color: 'gold.500' }}
+                fontFamily="heading"
+                letterSpacing="tight"
               >
-                About ▾
+                Tesla <Text as="span" color="brand.400">Works</Text>
               </Text>
+            </Link>
 
-              {/* Dropdown container with invisible bridge to prevent accidental close */}
-              <Box
-                position="absolute"
-                top="100%"
-                left="-24px"
-                right="-24px"
-                pt={1.9}
-                pointerEvents={showDropdown ? 'auto' : 'none'}
-              >
-                {/* Invisible bridge between trigger and menu */}
-                <Box height="18px" />
-
-                {/* Dropdown menu */}
-                <Box
-                  bg="navy.800"
-                  borderRadius="md"
-                  minW="170px"
-                  boxShadow="xl"
-                  py={2}
-                  ml="24px"
-                  opacity={showDropdown ? 1 : 0}
-                  transform={showDropdown ? 'translateY(0)' : 'translateY(-8px)'}
-                  transition="all 0.2s ease"
-                  overflow="hidden"
+            {/* Navigation Links - Desktop */}
+            <HStack gap={8} display={{ base: 'none', md: 'flex' }}>
+              {/* About dropdown with hover menu */}
+              <Box position="relative" onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
+                <Text
+                  fontSize="md"
+                  fontWeight="semibold"
+                  color="white"
+                  cursor="pointer"
+                  transition="color 0.3s ease"
+                  _hover={{ color: 'brand.400' }}
                 >
-                  <Text
-                    px={4}
-                    py={2}
-                    fontSize="md"
-                    fontWeight="semibold"
-                    color="white"
-                    cursor="pointer"
-                    borderRadius="md"
-                    transition="all 0.2s ease"
-                    _hover={{
-                      bg: 'gold.500',
-                      color: 'navy.800',
-                      transform: 'translateX(6px)',
-                    }}
-                  >
-                    Events
-                  </Text>
+                  About ▾
+                </Text>
 
-                  <Text
-                    as={Link}
-                    href="/officers"
-                    display="block"
-                    px={4}
-                    py={2}
-                    fontSize="md"
-                    fontWeight="semibold"
-                    color="white"
-                    cursor="pointer"
+                {/* Dropdown container with invisible bridge to prevent accidental close */}
+                <Box
+                  position="absolute"
+                  top="100%"
+                  left="-24px"
+                  right="-24px"
+                  pt={1.9}
+                  pointerEvents={showDropdown ? 'auto' : 'none'}
+                >
+                  {/* Invisible bridge between trigger and menu */}
+                  <Box height="18px" />
+
+                  {/* Dropdown menu */}
+                  <Box
+                    bg="dark.800"
                     borderRadius="md"
+                    minW="170px"
+                    boxShadow="xl"
+                    py={2}
+                    ml="24px"
+                    opacity={showDropdown ? 1 : 0}
+                    transform={showDropdown ? 'translateY(0)' : 'translateY(-8px)'}
                     transition="all 0.2s ease"
-                    _hover={{
-                      bg: 'gold.500',
-                      color: 'navy.800',
-                      transform: 'translateX(6px)',
-                    }}
+                    overflow="hidden"
                   >
-                    Officers
-                  </Text>
+                    <Text
+                      px={4}
+                      py={2}
+                      fontSize="md"
+                      fontWeight="semibold"
+                      color="white"
+                      cursor="pointer"
+                      borderRadius="md"
+                      transition="all 0.2s ease"
+                      _hover={{
+                        bg: 'brand.400',
+                        color: 'dark.800',
+                        transform: 'translateX(6px)',
+                      }}
+                    >
+                      Events
+                    </Text>
+
+                    <Text
+                      as={Link}
+                      href="/officers"
+                      display="block"
+                      px={4}
+                      py={2}
+                      fontSize="md"
+                      fontWeight="semibold"
+                      color="white"
+                      cursor="pointer"
+                      borderRadius="md"
+                      transition="all 0.2s ease"
+                      _hover={{
+                        bg: 'brand.400',
+                        color: 'dark.800',
+                        transform: 'translateX(6px)',
+                      }}
+                    >
+                      Officers
+                    </Text>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
 
-            <NavLink label="Projects" href="/projects" />
-            <NavLink label="Contact Us" href="/#contact" />
+              <NavLink label="Projects" href="/projects" />
+              <NavLink label="Contact Us" href="/contact-us" />
 
-            {/* CTA button */}
+              {/* CTA button */}
+              <Box
+                as="a"
+                href="/apply"
+                bg="white"
+                color="blue.400"
+                px={8}
+                py={3}
+                borderRadius="full"
+                fontWeight="700"
+                fontSize="lg"
+                lineHeight="1"
+                boxShadow="lg"
+                cursor="pointer"
+                transition="all 0.2s ease"
+                _hover={{ transform: 'translateY(-1px)', boxShadow: 'xl' }}
+                _active={{ transform: 'translateY(0)', boxShadow: 'md' }}
+              >
+                Apply Now
+              </Box>
+            </HStack>
+
+            {/* Mobile navbar menu button */}
             <Box
-              as="a"
-              href="/apply"
-              bg="white"
-              color="blue.400"
-              px={8}
-              py={3}
-              borderRadius="full"
-              fontWeight="700"
-              fontSize="lg"
-              lineHeight="1"
-              boxShadow="lg"
+              display={{ base: 'flex', md: 'none' }}
+              as="button"
+              color="white"
+              fontSize="28px"
+              bg="transparent"
+              border="none"
               cursor="pointer"
-              transition="all 0.2s ease"
-              _hover={{ transform: 'translateY(-1px)', boxShadow: 'xl' }}
-              _active={{ transform: 'translateY(0)', boxShadow: 'md' }}
+              p={2}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              zIndex={1001}
             >
-              Apply Now
+              {mobileMenuOpen ? <HiX /> : <HiMenu />}
             </Box>
-          </HStack>
-        </Flex>
-      </Container>
-    </Box>
+          </Flex>
+        </Container>
+      </Box>
+
+      <Box
+        position="fixed"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        bg="dark.900"
+        zIndex={999}
+        opacity={mobileMenuOpen ? 1 : 0}
+        pointerEvents={mobileMenuOpen ? 'auto' : 'none'}
+        transition="opacity 0.3s ease"
+        display={{ base: 'block', md: 'none' }}
+      >
+        <VStack pt={32} px={8} gap={6} align="stretch">
+          <MobileNavLink href="/" label="Home" onClick={() => setMobileMenuOpen(false)} />
+          <MobileNavLink href="/events" label="Events" onClick={() => setMobileMenuOpen(false)} />
+          <MobileNavLink href="/officers" label="Officers" onClick={() => setMobileMenuOpen(false)} />
+          <MobileNavLink href="/projects" label="Projects" onClick={() => setMobileMenuOpen(false)} />
+          <MobileNavLink href="/contact-us" label="Contact Us" onClick={() => setMobileMenuOpen(false)} />
+
+          {/* Mobile CTA */}
+          <Box
+            as={Link}
+            href="/apply"
+            bg="brand.500"
+            color="white"
+            py={4}
+            borderRadius="xl"
+            fontWeight="bold"
+            fontSize="lg"
+            textAlign="center"
+            mt={4}
+            onClick={() => setMobileMenuOpen(false)}
+            _hover={{ bg: 'brand.600' }}
+          >
+            Apply Now
+          </Box>
+        </VStack>
+      </Box>
+    </>
   )
 }
 
-// Reusable navigation link with hover animation
+// Desktop nav link
 function NavLink({ label, href }) {
   return (
     <Text
@@ -188,7 +271,7 @@ function NavLink({ label, href }) {
       cursor="pointer"
       position="relative"
       transition="color 0.3s ease"
-      _hover={{ color: 'gold.500' }}
+      _hover={{ color: 'brand.400' }}
       _after={{
         content: '""',
         position: 'absolute',
@@ -196,12 +279,33 @@ function NavLink({ label, href }) {
         left: 0,
         width: '0%',
         height: '3px',
-        bg: 'gold.500',
+        bg: 'brand.400',
         transition: 'width 0.3s ease',
       }}
       sx={{
         '&:hover::after': { width: '100%' },
       }}
+    >
+      {label}
+    </Text>
+  )
+}
+
+// Mobile nav link
+function MobileNavLink({ href, label, onClick }) {
+  return (
+    <Text
+      as={Link}
+      href={href}
+      fontSize="2xl"
+      fontWeight="bold"
+      color="white"
+      py={3}
+      borderBottom="1px solid"
+      borderColor="hsla(0, 0%, 100%, 0.1)"
+      transition="color 0.2s ease"
+      onClick={onClick}
+      _hover={{ color: 'brand.400' }}
     >
       {label}
     </Text>

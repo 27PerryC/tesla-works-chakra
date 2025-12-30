@@ -4,21 +4,27 @@ const config = defineConfig({
   theme: {
     tokens: {
       colors: {
-        navy: {
-          800: { value: 'hsl(212, 45%, 18%)' },
-          900: { value: 'hsl(212, 45%, 14%)' },
-        },
+        // Primary blue - your main accent color
         brand: {
-          600: { value: 'hsl(345, 100%, 28%)' },
-          700: { value: 'hsl(345, 100%, 24%)' },
+          400: { value: 'hsl(221, 92%, 65%)' },  // lighter - highlights
+          500: { value: 'hsl(221, 92%, 55%)' },  // default - buttons, links
+          600: { value: 'hsl(221, 92%, 45%)' },  // hover state
+          700: { value: 'hsl(221, 92%, 35%)' },  // active/pressed state
         },
-        gold: {
-          500: { value: 'hsl(46, 100%, 60%)' },
+
+        // Dark backgrounds (header, footer, dark cards)
+        dark: {
+          700: { value: 'hsl(0, 0%, 15%)' },    // lighter dark
+          800: { value: 'hsl(0, 0%, 12%)' },    // dark sections
+          900: { value: 'hsl(0, 0%, 9%)' },     // darkest - header/footer
         },
-        cream: {
-          50: { value: '#FAF8F3' },
-          100: { value: '#F7F3ED' },
-        }
+
+        // Light backgrounds
+        light: {
+          50: { value: 'hsl(0, 0%, 98%)' },     // almost white
+          100: { value: 'hsl(0, 0%, 96%)' },    // light gray bg
+          200: { value: 'hsl(0, 0%, 90%)' },    // borders, dividers
+        },
       },
       fonts: {
         heading: { value: '"IBM Plex Sans", sans-serif' },
@@ -29,8 +35,8 @@ const config = defineConfig({
 
   globalCss: {
     body: {
-      bg: '{colors.gray.100}',
-      color: 'gray.900',
+      bg: '{colors.light.100}',
+      color: '{colors.dark.900}',
     },
   },
 })
